@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import CustomFlatList from './src/components/screens/CustomFlatList';
 // import for Menu drawer
 
-import {createAppContainer,createDrawerNavigator,DrawerItems} from 'react-navigation'
+import {createAppContainer,createDrawerNavigator,DrawerItems,SafeAreaView} from 'react-navigation'
 import HomeScreen from './src/components/screens/HomeScreen';
 import SettingScreen from './src/components/screens/SettingScreen';
-import { Container, Header, Body, Content } from 'native-base';
-import {StyleSheet,Image} from 'react-native'
+import { Container, Header, Body, Content, Icon } from 'native-base';
+import {StyleSheet,Image,Dimensions} from 'react-native'
+
+const {width} = Dimensions.get('window')
 const MyDrawerNavigator = createDrawerNavigator({
   Home: {
     screen: HomeScreen,
@@ -18,25 +20,24 @@ const MyDrawerNavigator = createDrawerNavigator({
 },{
   drawerPosition:'left',
   initialRouteName:'Home',
-  // contentComponent:CustomContentComponent
+  // contentComponent:CustomContentComponent,
+  drawerWidth:width*0.8,
+  contentOptions:{
+    activeTintColor:'orange'
+  }
 });
 
 const MyApp = createAppContainer (MyDrawerNavigator);
 
 const CustomContentComponent = (props)=>(
-  <Container>
-    <Header style={{height:150}}>
-      <Body>
-        <Image
-          style={styles.drawerImage}
-          source={require('./assets/logo.png')}
-        ></Image>
-      </Body>
+  <SafeAreaView style={{flex:1}}>
+    <Header style={{height:200}}>
+      <Image style={styles.drawerImage} source={require('./assets/logo.png')}></Image>
     </Header>
     <Content>
       <DrawerItems {...props}></DrawerItems>
     </Content>
-  </Container>
+  </SafeAreaView>
 )
 export default class componentName extends Component {
   constructor(props) {
