@@ -5,19 +5,35 @@ import CustomFlatList from './src/components/screens/CustomFlatList';
 import {createAppContainer,createDrawerNavigator,DrawerItems,SafeAreaView} from 'react-navigation'
 import HomeScreen from './src/components/screens/HomeScreen';
 import SettingScreen from './src/components/screens/SettingScreen';
-import { Container, Header, Body, Content, Icon } from 'native-base';
+import { Header, Content} from 'native-base';
 import {StyleSheet,Image,Dimensions} from 'react-native'
+import LoginScreen from './src/components/screens/LoginScreen';
+import DetailScreen from './src/components/screens/DetailScreen';
+import CategoryScreen from './src/components/screens/CategoryScreen';
 
 const {width} = Dimensions.get('window')
 const MyDrawerNavigator = createDrawerNavigator({
   Home: {
     screen: HomeScreen,
   },
+  Catteories: {
+    screen: CategoryScreen,
+    
+  },
+  Detail: {
+    screen: DetailScreen,
+    
+  },
+  Login: {
+    screen: LoginScreen,
+    
+  },
   Settings: {
     screen: SettingScreen,
     
   },
-},{
+  },
+  {
   drawerPosition:'left',
   initialRouteName:'Home',
   // contentComponent:CustomContentComponent,

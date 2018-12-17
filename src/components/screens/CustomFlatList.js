@@ -3,6 +3,13 @@ import { FlatList } from 'react-native';
 import { Text, ListItem, Left, Body, Icon, Right, Title } from 'native-base';
 import data from '../utils/data.json'
 export default class CustomFlatList extends React.Component {
+    static navigationOptions = {
+        drawerLabel: 'Flat List',
+        drawerIcon: ({ tintColor }) => (
+            <Icon name='ios-card' style={{ width: 24, height: 24, color: tintColor }}></Icon>
+        ),
+    };
+
     constructor() {
         super();
         this.state = {
