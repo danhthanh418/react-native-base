@@ -1,12 +1,22 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import {Text, ListItem, Left, Body, Icon, Right, Title} from 'native-base';
-import Constants from '../utils/Constants'
+import {Text, ListItem, Left, Body, Icon, Container,Header,Content} from 'native-base';
+import Constants from '../utils/Constants';
 export default class CategoryScreen extends React.Component {
   static navigationOptions = {
     drawerLabel: 'Category',
     drawerIcon: ({tintColor}) => (
-      <Icon name="ios-list-box" style={{width: 24, height: 24, color: tintColor}} />
+      <Icon
+        name="ios-list-box"
+        style={{width: 24, height: 24, color: tintColor}}
+      />
+    ),
+    tabBarLabel: 'Category',
+    tabBarIcon: ({tintColor}) => (
+      <Icon
+        name="ios-list-box"
+        style={{width: 24, height: 24, color: tintColor}}
+      />
     ),
   };
 
@@ -30,30 +40,44 @@ export default class CategoryScreen extends React.Component {
           data: responseJson.genres,
           isLoading: false,
         });
+        // console.warn(this.state.data)
       })
       .catch (error => {
-        console.error (error);
+        // console.error (error);
       });
   }
 
-    renderItem = ({item}) => {
-      return (
-        <ListItem style={{marginLeft: 0}}>
-          <Body>
-            <Text>{item.name}</Text>
-          </Body>
-        </ListItem>
-      );
+  renderItem = ({item}) => {
+    return (
+      <ListItem style={{ marginLeft: 0 }}>
+        <Body>
+          <Text>{item.name}</Text>
+        </Body>
+      </ListItem>
+    );
   };
 
   render () {
     return (
-      <FlatList
-        data={this.state.data}
-        renderItem={this.renderItem}
-        keyExtractor={item => item.name}
-        stickyHeaderIndices={this.state.stickyHeaderIndices}
-      />
+      <Container>
+      <Header>
+        <Left style={{flex:1}}>
+            <Icon
+              name="ios-menu"
+              onPress={() => this.props.navigation.openDrawer()}
+            />
+        </Left>
+      </Header>
+      <Content>
+          <FlatList
+            data={this.state.data}
+            renderItem={this.renderItem}
+            keyExtractor={item => item.name}
+            stickyHeaderIndices={this.state.stickyHeaderIndices}
+          />
+      </Content>
+      </Container>
+         
     );
   }
 }

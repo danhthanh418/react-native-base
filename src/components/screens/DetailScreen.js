@@ -7,12 +7,16 @@ export default class DetailScreen extends Component {
     drawerIcon: ({tintColor}) => (
       <Icon name="ios-calendar" style={{width: 24, height: 24, color: tintColor}} />
     ),
+    tabBarLabel: 'Detail',
+    tabbarIcon: ({tintColor}) => (
+      <Icon name="ios-calendar" style={{width: 24, height: 24, color: tintColor}} />
+    ),
   };
   render () {
     return (
       <Container>
         <Header>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <Icon
               name="ios-menu"
               onPress={() => this.props.navigation.openDrawer ()}

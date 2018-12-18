@@ -8,6 +8,10 @@ export default class CustomFlatList extends React.Component {
         drawerIcon: ({ tintColor }) => (
             <Icon name='ios-card' style={{ width: 24, height: 24, color: tintColor }}></Icon>
         ),
+        tabBarLabel: 'Flat List',
+        tabBarIcon: ({ tintColor }) => (
+            <Icon name='ios-card' style={{ width: 24, height: 24, color: tintColor }}></Icon>
+        ),
     };
 
     constructor() {

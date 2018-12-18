@@ -7,12 +7,16 @@ export default class LoginScreen extends Component {
     drawerIcon: ({tintColor}) => (
       <Icon name="ios-log-in" style={{width: 24, height: 24, color: tintColor}} />
     ),
+    tabBarLabel: 'Login',
+    tabBarIcon: ({tintColor}) => (
+      <Icon name="ios-log-in" style={{width: 24, height: 24, color: tintColor}} />
+    ),
   };
   render () {
     return (
       <Container>
         <Header>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <Icon
               name="ios-menu"
               onPress={() => this.props.navigation.openDrawer ()}

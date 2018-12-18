@@ -7,14 +7,18 @@ export default class SettingScreen extends Component {
     static navigationOptions = {
         drawerLabel: 'Setting',
         drawerIcon: ({ tintColor }) => (
-            <Icon name='ios-lock' style={{width:24,height:24,color:tintColor}}></Icon>
+            <Icon name='ios-settings' style={{width:24,height:24,color:tintColor}}></Icon>
+        ),
+        tabBarLabel: 'Setting',
+        tabBarIcon: ({ tintColor }) => (
+            <Icon name='ios-settings' style={{width:24,height:24,color:tintColor}}></Icon>
         ),
     };
   render () {
     return (
       <Container>
         <Header>
-          <Left>
+          <Left style={{ flex: 1 }}>
             <Icon name="ios-menu" onPress={() => this.props.navigation.openDrawer()}/>
           </Left>
         </Header>

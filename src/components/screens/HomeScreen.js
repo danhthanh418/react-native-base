@@ -7,12 +7,16 @@ export default class HomeScreen extends Component {
         drawerIcon: ({ tintColor }) => (
             <Icon name='ios-home' style={{ width: 24, height: 24, color:  tintColor  }}></Icon>
         ),
+        tabBarLabel: 'Home',
+        tabBarIcon: ({ tintColor }) => (
+            <Icon name='ios-home' style={{ width: 24, height: 24, color:  tintColor  }}></Icon>
+        ),
     };
   render () {
     return (
       <Container>
         <Header>
-          <Left>
+          <Left style={{flex:1}}>
             <Icon name="ios-menu" onPress={() => this.props.navigation.openDrawer()}/>
           </Left>
         </Header>
